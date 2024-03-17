@@ -1,10 +1,9 @@
-import Header from "./Components/Header";
-
+import MainBody from "../src/Components/Body";
 
 function App() {
   return (
     <div className="Wrap">
-        <Header/>
+        <MainBody/>
     </div>
   );
 }
