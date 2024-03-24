@@ -26,18 +26,15 @@ const Catalog = () => {
     };
 
     return (
-        <div className="p-4">
-            <div className="flex justify-between items-center">
+        <div className="py-2">           
                 <button
-                    className="flex items-center bg-white text-green-600 font-bold text-lg py-2 px-4 rounded focus:outline-none"
+                    className="flex items-center bg-white px-4 rounded focus:outline-none "
                     onClick={() => toggleCategory('catalog')}
                 >
-                    <span className="ml-1 ">Каталог</span>
-                    <svg className="w-6 h-6 ml-1 my-0 text-yellow-400 fill-yellow-400 " viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M13.293 6.293a1 1 0 011.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L10 9.586l3.293-3.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                    </svg>
+                    <span className="ml-1 text-green-600 font-bold text-xl ">Каталог</span>
+                    <svg className=" fill-green-600 w-4 h-4 ml-1" viewBox="0 0 9 14">
+                    <path className='' d="M6.660,8.922 L6.660,8.922 L2.350,13.408 L0.503,11.486 L4.813,7.000 L0.503,2.515 L2.350,0.592 L8.507,7.000 L6.660,8.922 Z" /></svg>
                 </button>
-            </div>
             {expandedCategories.includes('catalog') && (
                 <ul className="mt-4 divide-y divide-gray-200">
                     {categories.map(category => (

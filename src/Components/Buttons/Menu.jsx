@@ -10,7 +10,7 @@ const MenuButton = () => {
     return (
         <div className="relative">
             <button
-                className="flex items-center bg-white text-green-600 font-bold text-lg py-2 px-4 rounded focus:outline-none"
+                className="flex items-center bg-white text-green-600 font-bold text-xl py-2 px-4 rounded focus:outline-none"
                 onClick={toggleMenu}
             >
                 <span className="mr-2">Меню</span>

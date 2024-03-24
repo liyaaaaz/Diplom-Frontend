@@ -15,14 +15,14 @@ const ArticleSlider = () => {
         {
             id: 2,
             title: 'Статья 2',
-            imageUrl: 'https://via.placeholder.com/300',
-            link: '/article/2'
+            imageUrl: '/src/Components/pictures/карусель1.jpeg',
+            link: 'https://tailwindcss.com/docs/padding'
         },
         {
             id: 3,
             title: 'Статья 3',
-            imageUrl: 'https://via.placeholder.com/300',
-            link: '/article/3'
+            imageUrl: '/src/Components/pictures/карусель1.jpeg',
+            link: 'https://tailwindcss.com/docs/padding'
         },
         // Добавьте другие статьи по аналогии
     ];
@@ -36,14 +36,14 @@ const ArticleSlider = () => {
     };
 
     return (
-        <div className="items-center h-72 w-full mb-11">
+        <div className='h-72 w-auto'>
             <Slider {...settings}>
                 {articles.map(article => (
                     <div key={article.id}>
                         <a href={article.link}>
-                            <div className="relative">
-                                <img src={article.imageUrl} alt={article.title} className="h-72 w-11/12"  />
-                                <p className="absolute top-0 left-0 text-black p-2">{article.title}</p>
+                            <div className="relative ">
+                                <img src={article.imageUrl} alt={article.title} className='h-72 w-auto pl-24'/>
+                                <p className="absolute top-0 left-4 text-black p-2">{article.title}</p>
                             </div>
                         </a>
                     </div>
