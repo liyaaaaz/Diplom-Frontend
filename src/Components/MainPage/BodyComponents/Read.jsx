@@ -2,13 +2,13 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-
+import Arrow from './Arrow.jsx';
 
 const ArticleSlider = () => {
     const articles = [
         {
             id: 1,
-            title: 'Статья 1',
+            title: 'Какая стяжка является лучшей на рынке?',
             imageUrl: '/src/Components/pictures/карусель1.jpeg',
             link: 'https://tailwindcss.com/docs/padding'
         },
@@ -33,17 +33,21 @@ const ArticleSlider = () => {
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
+        arrows: true,
+        nextArrow: <Arrow direction="right" green/>,
     };
 
     return (
-        <div className='h-72 w-auto'>
+        <div className='h-[347px] w-auto'>
             <Slider {...settings}>
                 {articles.map(article => (
                     <div key={article.id}>
                         <a href={article.link}>
-                            <div className="relative ">
-                                <img src={article.imageUrl} alt={article.title} className='h-72 w-auto pl-24'/>
-                                <p className="absolute top-0 left-4 text-black p-2">{article.title}</p>
+                            <div className="relative">
+                                <img src={article.imageUrl} alt={article.title} className=' h-[346px] w-auto ml-[350px]'/>
+                                <div className="absolute top-0 h-[150px] w-full bg-gradient-to-b from-yellow-500 to-transparent flex items-center justify-center">
+                                    <p className="text-green-100 w-auto mr-[800px] bold text-xl mb-20">{article.title}</p>
+                                </div>
                             </div>
                         </a>
                     </div>

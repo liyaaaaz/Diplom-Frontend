@@ -26,17 +26,17 @@ const Catalog = () => {
     };
 
     return (
-        <div className="py-2">           
-                <button
-                    className="flex items-center bg-white px-4 rounded focus:outline-none "
-                    onClick={() => toggleCategory('catalog')}
-                >
-                    <span className="ml-1 text-green-600 font-bold text-xl ">Каталог</span>
-                    <svg className=" fill-green-600 w-4 h-4 ml-1" viewBox="0 0 9 14">
+        <div className="relative">
+            <button
+                className="flex items-center bg-white left-0 rounded focus:outline-none mt-3 h-7"
+                onClick={() => toggleCategory('catalog')}
+            >
+                <span className="ml-1 text-green-600 font-bold text-base ">Каталог</span>
+                <svg className="fill-green-600 w-4 h-4 ml-1 " viewBox="0 0 9 14">
                     <path className='' d="M6.660,8.922 L6.660,8.922 L2.350,13.408 L0.503,11.486 L4.813,7.000 L0.503,2.515 L2.350,0.592 L8.507,7.000 L6.660,8.922 Z" /></svg>
-                </button>
+            </button>
             {expandedCategories.includes('catalog') && (
-                <ul className="mt-4 divide-y divide-gray-200">
+                <ul className="absolute top-4 left-0 mt-4 divide-y divide-gray-200 bg-white border rounded shadow-lg z-10">
                     {categories.map(category => (
                         <li key={category.id}>
                             <button

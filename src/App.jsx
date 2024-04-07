@@ -1,4 +1,4 @@
-import MainBody from "../src/Components/Body";
+import MainBody from "../src/Components/MainPage/Body";
 
 function App() {
   return (
