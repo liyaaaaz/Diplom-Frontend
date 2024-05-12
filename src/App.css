@@ -55,3 +55,12 @@
   outline: 0;
   font-size: 20px;
 }
+
+.catalog-open {
+  z-index: 1000; /* Устанавливаем z-index для открытого компонента */
+}
+
+.catalog-closed {
+  z-index: 1; /* Устанавливаем z-index для закрытого компонента */
+}
+

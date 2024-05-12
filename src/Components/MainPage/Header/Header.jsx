@@ -1,6 +1,6 @@
 import React from 'react'
-import MenuButton from "./MainPage/HeaderComponents/Menu";
-import Catalog from './MainPage/HeaderComponents/Catalog';
+import MenuButton from "./Menu";
+import Catalog from './Catalog';
 import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
@@ -25,11 +25,6 @@ export default function Header() {
               <a className="text-green-600 rounded-md px-1 pt-2 text-2xl font-bold cursor-default" aria-current="page" onClick={handleMainClick}>Склад №5</a>
               <a className="border-l-2 border-solid border-yellow-400 h-[53px]"></a>
             </div>
-          </div>
-        </div>
-        <div className= "absolute inset-y-0 left-0 items-center ml-52 sm:block sm:inset-0 align-middle">
-          <div className="relative mr-6">
-            <div className=' mb-2 text-green-600'><Catalog/></div>
           </div>
         </div>
         <div className="absolute inset-y-0 right-0 items-center pr-2 sm:static sm:inset-auto  align-middle">

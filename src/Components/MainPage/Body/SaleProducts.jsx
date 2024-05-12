@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import Arrow from './Arrow.jsx';
 
 const ProductsBlock = () => {
     // Массив с категориями
@@ -16,24 +17,25 @@ const ProductsBlock = () => {
 
     // Настройки для слайдера
     const settings = {
-        dots: true,
+        dots: false,
         infinite: true,
         speed: 500,
         slidesToShow: 5,
         slidesToScroll: 1,
-        arrows: false
+        arrows: true,
+        nextArrow: <Arrow direction="right" green/>,
     };
 
     return (
-        <div className='h-[230px] w-[1050px] ml-36 border-yellow-400 border-2 mt-8' >
-            <div className='h-[220px] w-[1040px] ml-4 relative'>
+        <div className='h-[230px] w-[1050px] ml-20 border-yellow-400 border-2 mt-8' > 
+            <div className='h-[220px] w-[1040px] ml-[15px] relative'>
             <h2 className="text-lg font-medium mb-1 text-black p-2 mt-1">Товары по скидкам</h2>
             <Slider {...settings} >
                 {categories.map(category => (
-                    <div key={category.id} className="px-2 flex-shrink-0">
+                    <div key={category.id} className="pr-2 flex-shrink-0">
                         <a href={category.link}> 
                             <div className="bg-white rounded-sm shadow-lg overflow-hidden h-[146px] w-44 border-yellow-400 border-2">
-                                <img src={category.image} alt={category.title} className=" w-24 h-24 object-cover ml-[30px]" />
+                                <img src={category.image} alt={category.title} className=" w-24 h-24 object-cover ml-5" />
                                 <div className=" text-center">
                                     <h3 className=" text-xs font-semibold mb-2 text-black">{category.title}</h3>
                                     <p className="text-xs text-gray-600">{category.price}</p>
@@ -43,9 +45,8 @@ const ProductsBlock = () => {
                     </div>
                 ))}
             </Slider>  
-           
+            </div>
         </div>
-    </div>
         
     );
 };

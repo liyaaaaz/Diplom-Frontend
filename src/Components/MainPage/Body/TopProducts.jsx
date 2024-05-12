@@ -13,7 +13,7 @@ const CategoryBlock = () => {
 
     return (
        
-        <div className='h-[230px] w-[1050px] ml-36 border-yellow-400 border-2' >
+        <div className='h-[230px] w-[1050px] ml-20 border-yellow-400 border-2' >
         <div className='h-[220px] w-[1040px] relative'>
         <h2 className="text-lg font-medium ml-4 mb-1 text-black p-2 mt-1">Хиты продаж</h2>
         <div className='flex justify-center ml-44' style={{ maxWidth: '700px' }}>
