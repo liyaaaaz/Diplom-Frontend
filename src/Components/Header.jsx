@@ -1,8 +1,15 @@
 import React from 'react'
-import MenuButton from "./HeaderComponents/Menu";
-import Catalog from './HeaderComponents/Catalog';
+import MenuButton from "./MainPage/HeaderComponents/Menu";
+import Catalog from './MainPage/HeaderComponents/Catalog';
+import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
+
+  const navigate = useNavigate();
+
+    const handleMainClick = () => {
+    navigate("/");
+    };
 
   return (
     <div>
@@ -15,7 +22,7 @@ export default function Header() {
           </div>
           <div className="hidden sm:ml-2 sm:block align-middle">
             <div className="flex space-x-4 h-16 align-middle">
-              <a className="text-green-600 rounded-md px-1 pt-2 text-2xl font-bold" aria-current="page">Склад №5</a>
+              <a className="text-green-600 rounded-md px-1 pt-2 text-2xl font-bold cursor-default" aria-current="page" onClick={handleMainClick}>Склад №5</a>
               <a className="border-l-2 border-solid border-yellow-400 h-[53px]"></a>
             </div>
           </div>

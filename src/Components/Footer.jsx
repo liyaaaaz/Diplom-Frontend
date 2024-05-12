@@ -9,15 +9,15 @@ export default function Footer() {
                     {/* Адреса */}
                     <div className="flex flex-col mb-4 sm:mb-0">
                         <a className="flex items-center">
-                            <span className="self-center text-sm font-semibold whitespace-nowrap dark:text-black">г.Краснодар, ул.им.Фрунзе</span>
+                            <span className="self-center text-sm font-semibold whitespace-nowrap dark:text-black">г.Краснодар, ул.Фрунзе, 141</span>
                         </a>
                         <a className="flex items-center">
-                            <span className="self-center text-sm font-semibold whitespace-nowrap dark:text-black">г.Краснодар, ул.им.Фрунзе</span>
+                            <span className="self-center text-sm font-semibold whitespace-nowrap dark:text-black">г.Краснодар, ул.им.Калинина, 456</span>
                         </a>
                     </div>
                     {/* Ссылки на WhatsApp и Telegram */}
                     <div>
-                    <span className="self-center text-sm font-medium ml-4 mb-4 sm:mb-0 dark:text-black">+7 918 339 33 44</span>
+                    <span className="self-center text-sm font-medium ml-4 mb-4 sm:mb-0 dark:text-black">+7 905 470 77 66</span>
                     <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
                         <li>
                             <a href="#" className="hover:underline hover:text-green-600 text-green-600 me-4 md:me-6">WhatsApp</a>

@@ -1,6 +1,6 @@
 import React from 'react'
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "../Header";
+import Footer from "../Footer";
 import ArticleSlider from "./BodyComponents/Read";
 import CategoryBlock from "./BodyComponents/ChooseCategory";
 import TopProductsBlock from "./BodyComponents/TopProducts";
@@ -39,3 +39,4 @@ export default function MainBody() {
             </div>      
     );
 }
+
