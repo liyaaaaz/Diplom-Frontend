@@ -8,8 +8,8 @@ const AppProvider = ({ children }) => {
   const navigate = useNavigate();
   useEffect(() => {
     if (!!localStorage.getItem("user")) {
-      const userInfo = JSON.parse(localStorage.getItem("user"));
-      setUser(userInfo);
+      const userData = JSON.parse(localStorage.getItem("user"));
+      setUser(userData);
     }
   }, [navigate]);
 
