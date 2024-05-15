@@ -3,10 +3,13 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "../../axios.js"
 import { useState } from "react";
+import { AppState } from "../../context/AppProvider.jsx";
 
 export default function SignIn() {
   const navigate = useNavigate();
   const [isError, setIsError] = useState(false);
+  const { setUser } = AppState();
+
 
   const handleRegistrationClick = () => {
     navigate("/reg");
