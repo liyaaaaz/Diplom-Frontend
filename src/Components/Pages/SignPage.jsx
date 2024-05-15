@@ -37,12 +37,12 @@ export default function SignIn() {
                     navigate("/");
                   }
           })
-          .catch((err) => {
+          .catch((error) => {
             setIsError(true);
-            throw new Error("Ошибка авторизации");
+            console.log(error)
           });
       } catch (err) {
-        console.error(err);
+        console.log(err);
       }
     },
   });
