@@ -56,15 +56,11 @@ export const ProductsAdmin = () => {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch(`http://localhost:4444/products`, {
-        headers: {
-          "Content-Type": "application/json;charset=utf-8",
-        },
-      });
-      const result = await response.json();
-      setProducts(result);
+      const response = await axios.get(`/products`);
+      setProducts(response.data.products);
     })();
   }, []);
+  
 
   const handleItemSelection = (itemId) => {
     const newSelection = [...selectedItems];
@@ -111,36 +107,36 @@ export const ProductsAdmin = () => {
             case "price":
               return true;
             case "drybuildingmixtures":
-              return product.subcategory.category === "Drybuildingmixtures";
+              return product.subcategory.category === "DrybuildingMixtures";
             case "primers":
               return product.subcategory.category === "Primers";
             case "ready-madebuildingmixtures":
               return (
-                product.subcategory.category === "Ready-made building mixtures"
+                product.subcategory.category === "ReadyMadeBuildingMixtures"
               );
             case "drywallandcomponents":
-              return product.subcategory.category === "Drywall and components";
+              return product.subcategory.category === "DrywallAndComponents";
             case "skirtingboards":
-              return product.subcategory.category === "Skirting boards";
+              return product.subcategory.category === "SkirtingBoards";
             case "adhesivessealantsandsilicones":
               return (
                 product.subcategory.category ===
-                "Adhesives, sealants and silicones"
+                "AdhesivesSealantsSilicones"
               );
             case "scotchtapefilm":
-              return product.subcategory.category === "Scotch tape, film";
+              return product.subcategory.category === "ScotchTapeFilm";
             case "tools":
               return product.subcategory.category === "Tools";
             case "plywoodtimberfiberboard":
               return (
-                product.subcategory.category === "Plywood, timber, fiberboard"
+                product.subcategory.category === "PlywoodTimberFiberboard"
               );
             case "decorativecorners":
-              return product.subcategory.category === "Decorative corners";
+              return product.subcategory.category === "DecorativeCorners";
             case "thresholds":
               return product.subcategory.category === "Thresholds";
             case "wallpaperfiberglass":
-              return product.subcategory.category === "Wallpaper, fiberglass";
+              return product.subcategory.category === "WallpaperFiberglass";
             case "fasteners":
               return product.subcategory.category === "Fasteners";
             default:
