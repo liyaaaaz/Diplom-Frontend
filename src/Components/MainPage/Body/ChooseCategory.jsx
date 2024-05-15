@@ -7,28 +7,19 @@ import { useNavigate } from "react-router-dom";
 
 const CategoryBlock = () => {
   // Массив с категориями
-  const navigateToLink = (link) => {
-    window.location.href = link;
-  };
-
-  const handleDrybuildingMixturesClick = (link) => {
-    navigateToLink(link);
-  };
 
   const navigate = useNavigate();
 
-  // const handleDrybuildingMixturesClick = () => {
-  //   navigate("/DrybuildingMixtures");
-  // };
+  const handleDrybuildingMixturesClick = () => {
+    navigate("/DrybuildingMixtures");
+  };
 
   const categories = [
     {
       id: 1,
       title: "Сухие строительные смеси",
       image: "/src/Components/pictures/сух.jpg",
-      onClick: () => {
-        handleDrybuildingMixturesClick("https://skald-5.vercel.app/DrybuildingMixtures");
-      },
+      onClick: handleDrybuildingMixturesClick,
     },
     {
       id: 2,
