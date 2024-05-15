@@ -2,10 +2,10 @@ import { Outlet } from "react-router-dom";
 import { SideBar } from "../SlideBar/SlideBar";
 
 export const LayoutAdmin = () => {
-  // const user = JSON.parse(localStorage.getItem("userInfo"));
-  // // if (user?.role !== "admin") {
-  // //   return <>Доступ запрещен</>;
-  // // }
+  const user = JSON.parse(localStorage.getItem("userInfo"));
+  if (user?.role !== "admin") {
+    return <>Доступ запрещен</>;
+  }
   return (
     <>
       <SideBar />

@@ -32,11 +32,6 @@ export default function SignIn() {
             setUser(JSON.stringify(response.data.user));
             alert("Успешная авторизация!");
             handleClose();
-            if (response.data.user.role === "admin") {
-              navigate("/admin");
-            } else {
-              navigate("/");
-            }
           })
           .catch((err) => {
             setIsError(true);
