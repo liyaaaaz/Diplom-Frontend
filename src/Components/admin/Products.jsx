@@ -22,10 +22,19 @@ const filterOptions = [
   { value: "price", label: "По цене" },
   { value: "drybuildingmixtures", label: "Только сухие строительные смеси" },
   { value: "primers", label: "Только грунтовки" },
-  { value: "ready-madebuildingmixtures", label: "Только готовые строительные смеси" },
-  { value: "drywallandcomponents", label: "Только гипсокартон и комплектующие" },
+  {
+    value: "ready-madebuildingmixtures",
+    label: "Только готовые строительные смеси",
+  },
+  {
+    value: "drywallandcomponents",
+    label: "Только гипсокартон и комплектующие",
+  },
   { value: "skirtingboards", label: "Только плинтуса" },
-  { value: "adhesivessealantsandsilicones", label: "Только клеи, герметики и силиконы" },
+  {
+    value: "adhesivessealantsandsilicones",
+    label: "Только клеи, герметики и силиконы",
+  },
   { value: "scotchtapefilm", label: "Только скотч, пленка" },
   { value: "tools", label: "Только инструменты" },
   { value: "plywoodtimberfiberboard", label: "Только фанера, брус, двп" },
@@ -76,7 +85,7 @@ export const ProductsAdmin = () => {
   };
 
   const handleSelectDelete = async () => {
-    const response = await axios.post(`/products/delete`, {
+    const response = await axios.post(`/deleteproducts`, {
       ids: selectedItems,
     });
     if (response.status === 200) {
@@ -102,31 +111,38 @@ export const ProductsAdmin = () => {
             case "price":
               return true;
             case "drybuildingmixtures":
-              return product.subcategory.category === "Dry building mixtures";
+              return product.subcategory.category === "Drybuildingmixtures";
             case "primers":
               return product.subcategory.category === "Primers";
             case "ready-madebuildingmixtures":
-                return product.subcategory.category === "Ready-made building mixtures";
+              return (
+                product.subcategory.category === "Ready-made building mixtures"
+              );
             case "drywallandcomponents":
-                return product.subcategory.category === "Drywall and components";
+              return product.subcategory.category === "Drywall and components";
             case "skirtingboards":
-                return product.subcategory.category === "Skirting boards";
+              return product.subcategory.category === "Skirting boards";
             case "adhesivessealantsandsilicones":
-                return product.subcategory.category === "Adhesives, sealants and silicones";
+              return (
+                product.subcategory.category ===
+                "Adhesives, sealants and silicones"
+              );
             case "scotchtapefilm":
-                return product.subcategory.category === "Scotch tape, film";
+              return product.subcategory.category === "Scotch tape, film";
             case "tools":
-                return product.subcategory.category === "Tools";
+              return product.subcategory.category === "Tools";
             case "plywoodtimberfiberboard":
-                return product.subcategory.category === "Plywood, timber, fiberboard";
+              return (
+                product.subcategory.category === "Plywood, timber, fiberboard"
+              );
             case "decorativecorners":
-                return product.subcategory.category === "Decorative corners";
+              return product.subcategory.category === "Decorative corners";
             case "thresholds":
-                return product.subcategory.category === "Thresholds";
+              return product.subcategory.category === "Thresholds";
             case "wallpaperfiberglass":
-                return product.subcategory.category === "Wallpaper, fiberglass";
+              return product.subcategory.category === "Wallpaper, fiberglass";
             case "fasteners":
-                return product.subcategory.category === "Fasteners";
+              return product.subcategory.category === "Fasteners";
             default:
               return true;
           }
@@ -144,8 +160,8 @@ export const ProductsAdmin = () => {
     : [];
 
   const fetchAgain = async () => {
-    const response = await axios.get(`/products/getAllProducts`);
-    setProducts(response.data.products);
+    const response = await axios.get(`/products`);
+    setProducts(response.data);
   };
 
   const handleAddProd = () => {
@@ -170,13 +186,6 @@ export const ProductsAdmin = () => {
       title: "Изменение товара",
     });
   };
-
-  useEffect(() => {
-    (async function fetchProduct() {
-      const response = await axios.get(`/products/getAllProducts`);
-      setProducts(response.data.products);
-    })();
-  }, []);
 
   return (
     <Box display="flex" flexDirection="column" className=" bg-white">
@@ -246,7 +255,8 @@ export const ProductsAdmin = () => {
                     >
                       <ProdCard
                         key={i}
-                        _id={product._id}
+                        productId={product._id}
+                        selectedItems={selectedItems}
                         category={product.subcategory.category}
                         subcategory={product.subcategory.name}
                         name={product.name}

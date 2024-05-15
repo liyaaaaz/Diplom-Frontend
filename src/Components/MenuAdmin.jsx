@@ -13,9 +13,7 @@ export const MenuAdmin = () => {
       <Link to="/admin/products" className="w-full text-green-600">
         <Button fullWidth color="inherit">Товары</Button>
       </Link>
-      <Link to="/" className="w-full text-green-600">
-        <Button fullWidth color="inherit">Выйти</Button>
-      </Link>
+      
     </Box>
   );
 };

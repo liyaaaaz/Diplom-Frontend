@@ -4,12 +4,15 @@ import CalculateRoundedIcon from "@mui/icons-material/CalculateRounded";
 import PhoneRoundedIcon from "@mui/icons-material/PhoneRounded";
 import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const MenuButton = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   const isAuth = !!localStorage.getItem("token");
+
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -55,12 +58,25 @@ const MenuButton = () => {
       </button>
       {menuOpen && (
         <div className="top-4 absolute right-0 mt-4 py-2 w-48 bg-white border rounded shadow-lg z-10">
-          <button
-            className="font-bold block px-4 py-2 text-green-600 hover:bg-green-200 w-full text-center"
-            onClick={handleLoginClick}
-          >
-            Войти
-          </button>
+          {!isAuth && (
+            <button
+              className="font-bold block px-4 py-2 text-green-600 hover:bg-green-200 w-full text-center"
+              onClick={handleLoginClick}
+            >
+              Войти
+            </button>
+          )}
+          {isAuth && (
+            <div
+              className="flex items-center mt-2 ml-2 cursor-default"
+              onClick={handleBasketClick}
+            >
+              <AccountCircleIcon className="h-10 w-10 text-green-600" />{" "}
+              <a className="text-green-600 text-sm ml-2" href="#">
+                {user.firstName} {user.secondName}
+              </a>
+            </div>
+          )}
           <hr className="border-green-600 w-44 mt-2 ml-[8px] border-[1px]" />
           {isAuth && (
             <div

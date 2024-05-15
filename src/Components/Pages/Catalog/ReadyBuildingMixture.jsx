@@ -1,4 +1,4 @@
-import { ProdVerticalCard } from "../../Components/ProdVerticalCard";
+import { ProdVerticalCard } from "../../ProdVerticalCard";
 import { useContext, useEffect, useState } from "react";
 import {
   Box,
@@ -9,21 +9,17 @@ import {
   Select,
   TextField,
 } from "@mui/material";
-import { useScreenWidth } from "../../hooks/useScreenWidth";
+import { useScreenWidth } from "../../../hooks/useScreenWidth";
 import SearchIcon from "@mui/icons-material/Search";
 
 const filterOptions = [
   { value: "price", label: "По цене" },
-  { value: "plaster", label: "Только штукатурки" },
-  { value: "putty", label: "Только шпаклевки" },
-  { value: "tileadhesive", label: "Только плиточный клей" },
-  { value: "self-levelingfloor", label: "Только наливной пол" },
-  { value: "screed", label: "Только стяжка" },
-  { value: "glueforgasblock", label: "Только клей для газоблока" },
-  { value: "masonrymixture", label: "Только кладочная смесь" },
+  { value: "putty", label: "Только шпаклевка" },
+  { value: "wallpaperglue", label: "Только клей для обоев" },
+  { value: "waterproofing", label: "Только гидроизоляция" },
 ];
 
-export const DryBuildingMixPage = () => {
+export const ReadyMadePage = () => {
     const [products, setProducts] = useState();
     const { isDesktop } = useScreenWidth();
 
@@ -63,20 +59,12 @@ export const DryBuildingMixPage = () => {
           switch (filterOption) {
             case "price":
               return true;
-            case "plaster":
-              return product.subcategory.name === "Штукатурка";
             case "putty":
               return product.subcategory.name === "Шпаклевка";
-            case "tileadhesive":
-                return product.subcategory.name === "Клей плиточный";
-            case "self-levelingfloor":
-                return product.subcategory.name === "Наливной пол";
-            case "screed":
-                return product.subcategory.name === "Стяжка";
-            case "glueforgasblock":
-                return product.subcategory.name === "Клей для газоблока";
-            case "masonrymixture":
-                return product.subcategory.name === "Кладочная смесь";
+            case "wallpaperglue":
+              return product.subcategory.name === "Клей для обоев";
+            case "waterproofing":
+                return product.subcategory.name === "Гидроизоляция";
             default:
               return true;
           }
@@ -84,7 +72,7 @@ export const DryBuildingMixPage = () => {
         .sort((a, b) => {
           switch (filterOption) {
             case "price":
-              return a.cost - b.cost;
+              return a.totalPrice - b.totalPrice;
             default:
               return 0;
           }
@@ -135,7 +123,7 @@ export const DryBuildingMixPage = () => {
         {products ? (
           filteredProducts.length > 0 ? (
             filteredProducts
-            .filter((product) => product.subcategory.category === "Dry building mixtures")
+            .filter((product) => product.subcategory.category === "ReadyMadeBuildingMixtures")
             .map((product, i) => {
               {
                 return (
@@ -151,7 +139,7 @@ export const DryBuildingMixPage = () => {
                         subcategory={product.subcategory.name}
                         name={product.name}
                         pictures={product.pictures}
-                        price={product.price}
+                        totalPrice={product.totalPrice}
                         description={product.description}
                     />
                     </Box>

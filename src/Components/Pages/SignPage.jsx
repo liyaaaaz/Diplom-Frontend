@@ -25,11 +25,17 @@ export default function SignIn() {
 
       const result = await response.json();
 
-      const user = JSON.stringify(result.userData);
+      if (!result.message) {
+        const user = JSON.stringify(result.userData);
 
-      localStorage.setItem("token", result.token);
-      localStorage.setItem("user", user);
-      navigate("/");
+        localStorage.setItem("token", result.token);
+        localStorage.setItem("user", user);
+      }
+      if (result.userData.role === "admin") {
+        navigate("/admin");
+      } else {
+        navigate("/");
+      }
     },
   });
   return (

@@ -4,15 +4,16 @@ import App from "./App.jsx";
 import "./index.css";
 import { BrowserRouter } from "react-router-dom";
 import AppProvider from "./context/AppProvider.jsx";
-
-
+import { ModalProvider } from "./Components/ModalContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
+      <ModalProvider>
         <AppProvider>
-            <App />
+          <App />
         </AppProvider>
+      </ModalProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

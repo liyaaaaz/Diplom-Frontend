@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import { MenuAdmin } from "../MenuAdmin";
 import { ProfileAdmin } from "../AdminProfile";
+import { Link } from "react-router-dom";
+import {  Button } from "@mui/material";
+
 
 export const SideBar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -30,7 +33,7 @@ export const SideBar = () => {
 
   return (
     <>
-      <header className="flex justify-between bg-yellow-50 items-center p-7 text-lg text-green-600 font-bold md:justify-center md:ml-60 border-b border-grey-400">
+      <header className="flex justify-between bg-gray-700 p-7 text-lg text-yellow-200 font-bold md:justify-center md:ml-60 border-b border-grey-400">
         <button
           onClick={() => handleSidebarToggle()}
           data-drawer-target="logo-sidebar"
@@ -54,22 +57,29 @@ export const SideBar = () => {
             ></path>
           </svg>
         </button>
-        <span className="text-xl truncate text-green-600">Склад /5</span>
+        <span className="text-2xl left-0 truncate text-yellow-200">Склад /5</span>
         <span></span>
+        <aside className="right-0 flex ml-36">
+        <ProfileAdmin className ="right-0 "></ProfileAdmin>
+        <Link to="/" className="w-full text-yellow-200">
+        <Button fullWidth color="inherit">Выйти</Button>
+        </Link>
+        </aside>
       </header>
 
       <aside
         id="logo-sidebar"
         ref={sidebarRef}
-        className={`fixed top-0 left-0 z-40 bg-yellow-50 h-full w-60 transition-transform md:translate-x-0 ${
+        className={`fixed top-0 left-0 z-40 bg-gray-700 h-full w-60 transition-transform md:translate-x-0 ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } `}
         aria-label="Sidebar"
       >
-        <ProfileAdmin />
         <div className="bg-white h-1 text-green-600"></div>
         <MenuAdmin />
       </aside>
+
+      
     </>
   );
 };
