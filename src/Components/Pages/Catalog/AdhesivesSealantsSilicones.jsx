@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import { useScreenWidth } from "../../../hooks/useScreenWidth";
 import SearchIcon from "@mui/icons-material/Search";
+import axios from "../../../axios";
 
 const filterOptions = [
   { value: "price", label: "По цене" },
