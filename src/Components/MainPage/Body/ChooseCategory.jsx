@@ -11,7 +11,7 @@ const CategoryBlock = () => {
   const navigate = useNavigate();
 
   const handleDrybuildingMixturesClick = () => {
-    navigate("DrybuildingMixtures");
+    navigate("/DrybuildingMixtures");
   };
 
   const categories = [
