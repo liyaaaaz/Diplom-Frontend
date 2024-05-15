@@ -27,11 +27,15 @@ export default function SignIn() {
             localStorage.setItem("token", response.data.token);
             localStorage.setItem(
               "userInfo",
-              JSON.stringify(response.data.user)
+              JSON.stringify(response.data.userData)
             );
-            setUser(JSON.stringify(response.data.user));
+            setUser(JSON.stringify(response.data.userData));
             alert("Успешная авторизация!");
-            handleClose();
+            if (response.userData.role === "admin") {
+                    navigate("/admin");
+                  } else {
+                    navigate("/");
+                  }
           })
           .catch((err) => {
             setIsError(true);
