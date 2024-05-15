@@ -7,8 +7,8 @@ const AppProvider = ({ children }) => {
   const [user, setUser] = useState();
   const navigate = useNavigate();
   useEffect(() => {
-    if (!!localStorage.getItem("user")) {
-      const userData = JSON.parse(localStorage.getItem("user"));
+    if (!!localStorage.getItem("userData")) {
+      const userData = JSON.parse(localStorage.getItem("userData"));
       setUser(userData);
     }
   }, [navigate]);
