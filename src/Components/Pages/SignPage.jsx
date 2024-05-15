@@ -24,12 +24,12 @@ export default function SignIn() {
           .post("/auth/login", values)
           .then((response) => {
             console.log(response);
-            localStorage.setItem("token", response.data.token);
+            localStorage.setItem("token", response.token);
             localStorage.setItem(
               "userData",
-              JSON.stringify(response.data.userData)
+              JSON.stringify(response.userData)
             );
-            setUser(JSON.stringify(response.data.userData));
+            setUser(JSON.stringify(response.userData));
             alert("Успешная авторизация!");
             if (response.userData.role === "admin") {
                     navigate("/admin");
