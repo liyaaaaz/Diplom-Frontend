@@ -19,9 +19,7 @@ const CategoryBlock = () => {
       id: 1,
       title: "Сухие строительные смеси",
       image: "/src/Components/pictures/сух.jpg",
-      onClick: () => {
-        handleDrybuildingMixturesClick("https://skald-5.vercel.app/DrybuildingMixtures");
-    },
+      onClick: () => {handleDrybuildingMixturesClick},
     },
     {
       id: 2,
