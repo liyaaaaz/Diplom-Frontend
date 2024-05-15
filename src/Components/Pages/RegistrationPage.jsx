@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { TextField } from "@mui/material";
 import { useFormik } from "formik";
 import axios from "../../axios.js"
+const [isError, setIsError] = useState(false);
 
 export default function SignIn() {
   const navigate = useNavigate();
@@ -24,8 +25,8 @@ export default function SignIn() {
         axios.post("/auth/register", values).then((res) => {
           if (res.status == 201) {
             localStorage.setItem("token", res.data.token);
-            alert("Успешная авторизация!");
-            localStorage.setItem("user", user);
+            alert("Успешная регистрация!");
+            localStorage.setItem("user", userData);
             navigate("/");
             handleClose();
           } else {
