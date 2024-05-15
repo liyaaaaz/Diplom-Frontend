@@ -23,53 +23,28 @@ export default function SignIn() {
         axios
           .post("/auth/login", values)
           .then((response) => {
-            console.log(response);
-            localStorage.setItem("token", response.data.token);
-            localStorage.setItem(
-              "userInfo",
-              JSON.stringify(response.data.userData)
-            );
-            setUser(JSON.stringify(response.data.userData));
-            alert("Успешная авторизация!");
-            if (response.userData.role === "admin") {
+            if (!response.message) {
+                    const user = JSON.stringify(response.userData);
+            
+                    localStorage.setItem("token", response.token);
+                    localStorage.setItem("user", user);
+                  }
+                  if (response.userData.role === "admin") {
                     navigate("/admin");
                   } else {
                     navigate("/");
                   }
           })
-          .catch((err) => {
+          .catch((error) => {
             setIsError(true);
-            throw new Error("Ошибка авторизации");
+            console.error(error);
           });
       } catch (err) {
         console.error(err);
       }
     },
   });
-  //   onSubmit: async (values) => {
-  //     const response = await fetch(`http://localhost:4444/auth/login`, {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json;charset=utf-8",
-  //       },
-  //       body: JSON.stringify(values),
-  //     });
 
-  //     const result = await response.json();
-
-  //     if (!result.message) {
-  //       const user = JSON.stringify(result.userData);
-
-  //       localStorage.setItem("token", result.token);
-  //       localStorage.setItem("user", user);
-  //     }
-  //     if (result.userData.role === "admin") {
-  //       navigate("/admin");
-  //     } else {
-  //       navigate("/");
-  //     }
-  //   },
-  // });
   return (
     <>
       <div className="flex flex-1 flex-col justify-center px-6 py-9 lg:px-8 bg-white w-full h-screen">
