@@ -13,6 +13,42 @@ const CategoryBlock = () => {
   const handleDrybuildingMixturesClick = () => {
     navigate("/DrybuildingMixtures");
   };
+  const handlePrimesClick = () => {
+    navigate("/Primes");
+  };
+  const handleReadyMadeBuildingMixturesClick = () => {
+    navigate("/ReadyMadeBuildingMixtures");
+  };
+  const handleDrywallAndComponentsClick = () => {
+    navigate("/DrywallAndComponents");
+  };
+  const handleSkirtingBoardsClick = () => {
+    navigate("/SkirtingBoards");
+  };
+  const handleAdhesivesSealantsSiliconesClick = () => {
+    navigate("/AdhesivesSealantsSilicones");
+  };
+  const handleScotchTapeFilmClick = () => {
+    navigate("/ScotchTapeFilm");
+  };
+  const handleToolsClick = () => {
+    navigate("/Tools");
+  };
+  const handlePlywoodTimberFiberboardClick = () => {
+    navigate("/PlywoodTimberFiberboard");
+  };
+  const handleDecorativeCornersClick = () => {
+    navigate("/DecorativeCorners");
+  };
+  const handleThresholdsClick = () => {
+    navigate("/Thresholds");
+  };
+  const handleWallpaperFiberglassClick = () => {
+    navigate("/WallpaperFiberglass");
+  };
+  const handleFastenersClick = () => {
+    navigate("/Fasteners");
+  };
 
   const categories = [
     {
@@ -25,73 +61,73 @@ const CategoryBlock = () => {
       id: 2,
       title: "Грунтовки",
       image: "/src/Components/pictures/гипс проф.jpg",
-      link: "https://skald-5.vercel.app/Primes",
+      onClick: handlePrimesClick,
     },
     {
       id: 3,
       title: "Готовые строительные смеси",
       image: "/src/Components/pictures/плин.jpg",
-      link: "https://skald-5.vercel.app/ReadyMadeBuildingMixtures",
+      onClick: handleReadyMadeBuildingMixturesClick,
     },
     {
       id: 4,
       title: "Гипсокартон  и комплектующие",
       image: "/src/Components/pictures/инстр.jpeg",
-      link: "https://skald-5.vercel.app/DrywallAndComponents",
+      onClick: handleDrywallAndComponentsClick,
     },
     {
       id: 5,
       title: "Плинтуса",
       image: "/src/Components/pictures/инстр.jpeg",
-      link: "https://skald-5.vercel.app/SkirtingBoards",
+      onClick: handleSkirtingBoardsClick,
     },
     {
       id: 6,
       title: "Клеи, герметики, силиконы",
       image: "/src/Components/pictures/инстр.jpeg",
-      link: "https://skald-5.vercel.app/AdhesivesSealantsSilicones",
+      onClick: handleAdhesivesSealantsSiliconesClick,
     },
     {
       id: 7,
       title: "Скотч, пленка",
       image: "/src/Components/pictures/инстр.jpeg",
-      link: "https://skald-5.vercel.app/ScotchTapeFilm",
+      onClick: handleScotchTapeFilmClick,
     },
     {
       id: 8,
       title: "Инструменты",
       image: "/src/Components/pictures/инстр.jpeg",
-      link: "https://skald-5.vercel.app/Tools",
+      onClick: handleToolsClick,
     },
     {
       id: 9,
       title: "Фанера, брус, двп",
       image: "/src/Components/pictures/инстр.jpeg",
-      link: "https://skald-5.vercel.app/PlywoodTimberFiberboard",
+      onClick: handlePlywoodTimberFiberboardClick,
     },
     {
       id: 10,
       title: "Декоративные углы",
       image: "/src/Components/pictures/инстр.jpeg",
-      link: "https://skald-5.vercel.app/DecorativeCorners",
+      onClick: handleDecorativeCornersClick,
     },
     {
       id: 11,
       title: "Пороги",
       image: "/src/Components/pictures/инстр.jpeg",
-      link: "https://skald-5.vercel.app/Thresholds",
+      onClick: handleThresholdsClick,
     },
     {
       id: 12,
       title: "Обои, стклохолст",
       image: "/src/Components/pictures/инстр.jpeg",
-      link: "https://skald-5.vercel.app/WallpaperFiberglass",
+      onClick: handleWallpaperFiberglassClick,
     },
     {
       id: 13,
       title: "Крепеж",
       image: "/src/Components/pictures/инстр.jpeg",
-      link: "https://skald-5.vercel.app/Fasteners",
+      onClick: handleFastenersClick,
     },
   ];
 
