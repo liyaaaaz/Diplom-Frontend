@@ -60,7 +60,7 @@ const CategoryBlock = () => {
     {
       id: 2,
       title: "Грунтовки",
-      image: "/src/Components/pictures/гипс проф.jpg",
+      image: "/src/Components/pictures/gips.jpg",
       onClick: handlePrimesClick,
     },
     {
