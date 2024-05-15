@@ -114,7 +114,6 @@ export default function SignIn() {
                   onChange={formik.handleChange}
                   required
                   className="pl-2 block w-full rounded-md bg-white border-[0.5px] border-black py-1.5 text-gray-900 shadow-sm placeholder:text-green-600 placeholder:ml-3 placeholder:text-lg  sm:text-sm sm:leading-6"
-                  pattern="+7 ([0-9]){3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"
                   placeholder="+7 (9__) - ___ - __ - __"
                 />
               </div>
