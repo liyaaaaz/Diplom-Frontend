@@ -3,10 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { TextField } from "@mui/material";
 import { useFormik } from "formik";
 import axios from "../../axios.js"
-const [isError, setIsError] = useState(false);
+
 
 export default function SignIn() {
   const navigate = useNavigate();
+
+  const [isError, setIsError] = useState(false);
 
   const handleLoginClick = () => {
     navigate("/signin");
