@@ -73,7 +73,7 @@ const MenuButton = () => {
             >
               <AccountCircleIcon className="h-10 w-10 text-green-600" />{" "}
               <a className="text-green-600 text-sm ml-2" href="#">
-                {user.firstName}
+                {/* {user.firstName} */}
               </a>
             </div>
           )}
