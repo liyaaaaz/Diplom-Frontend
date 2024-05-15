@@ -19,23 +19,25 @@ export default function SignIn() {
       password: "",
     },
     onSubmit: async (values) => {
-      const response = await fetch(`http://localhost:4444/auth/register`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json;charset=utf-8",
-        },
-        body: JSON.stringify(values),
-      });
-
-      const result = await response.json();
-      const user = JSON.stringify(result.userData);
-      if (result) {
-        localStorage.setItem("token", result.token);
-        localStorage.setItem("user", user);
-        navigate("/");
+      try {
+        axios.post("/auth/register", values).then((res) => {
+          if (res.status == 201) {
+            localStorage.setItem("token", res.data.token);
+            alert("Успешная авторизация!");
+            localStorage.setItem("user", user);
+            navigate("/");
+            handleClose();
+          } else {
+            setIsError(true);
+          }
+        });
+      } catch (err) {
+        console.log(err);
       }
     },
   });
+
+      
   return (
     <>
       <div className="flex flex-1 flex-col justify-center px-6 py-9 lg:px-8 bg-white w-full h-screen">

@@ -14,30 +14,60 @@ export default function SignIn() {
       phone: "",
       password: "",
     },
+
     onSubmit: async (values) => {
-      const response = await fetch(`http://localhost:4444/auth/login`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json;charset=utf-8",
-        },
-        body: JSON.stringify(values),
-      });
-
-      const result = await response.json();
-
-      if (!result.message) {
-        const user = JSON.stringify(result.userData);
-
-        localStorage.setItem("token", result.token);
-        localStorage.setItem("user", user);
-      }
-      if (result.userData.role === "admin") {
-        navigate("/admin");
-      } else {
-        navigate("/");
+      try {
+        axios
+          .post("/auth/login", values)
+          .then((response) => {
+            console.log(response);
+            localStorage.setItem("token", response.data.token);
+            localStorage.setItem(
+              "userInfo",
+              JSON.stringify(response.data.user)
+            );
+            setUser(JSON.stringify(response.data.user));
+            alert("Успешная авторизация!");
+            handleClose();
+            if (response.data.user.role === "admin") {
+              navigate("/admin");
+            } else {
+              navigate("/");
+            }
+          })
+          .catch((err) => {
+            setIsError(true);
+            throw new Error("Ошибка авторизации");
+          });
+      } catch (err) {
+        console.error(err);
       }
     },
   });
+  //   onSubmit: async (values) => {
+  //     const response = await fetch(`http://localhost:4444/auth/login`, {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json;charset=utf-8",
+  //       },
+  //       body: JSON.stringify(values),
+  //     });
+
+  //     const result = await response.json();
+
+  //     if (!result.message) {
+  //       const user = JSON.stringify(result.userData);
+
+  //       localStorage.setItem("token", result.token);
+  //       localStorage.setItem("user", user);
+  //     }
+  //     if (result.userData.role === "admin") {
+  //       navigate("/admin");
+  //     } else {
+  //       navigate("/");
+  //     }
+  //   },
+  // });
   return (
     <>
       <div className="flex flex-1 flex-col justify-center px-6 py-9 lg:px-8 bg-white w-full h-screen">

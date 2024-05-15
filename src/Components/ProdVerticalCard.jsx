@@ -9,6 +9,7 @@ export const ProdVerticalCard = ({
   category,
   subcategory,
   price,
+  totalPrice, // Добавляем totalPrice в пропсы
   pictures,
   description,
   _id,
@@ -24,6 +25,7 @@ export const ProdVerticalCard = ({
       behavior: "smooth",
     });
   };
+
   return (
     <Box
       onClick={() => handleClick()}
@@ -41,9 +43,21 @@ export const ProdVerticalCard = ({
             <Box sx={{ fontWeight: "regular", fontSize: 14, m: 1 }}>
               {subcategory}
             </Box>
-            <Box sx={{ fontWeight: "medium", fontSize: 16, m: 1 }}>
-              {price} руб.
-            </Box>
+            {price !== totalPrice && ( // Если цена и totalPrice различны, отображаем обе
+              <>
+                <Box sx={{ fontWeight: "medium", fontSize: 16, m: 1, textDecoration: 'line-through' }}>
+                  {price} руб.
+                </Box>
+                <Box sx={{ fontWeight: "medium", fontSize: 16, m: 1 }}>
+                  {totalPrice} руб. {/* Отображаем totalPrice рядом */}
+                </Box>
+              </>
+            )}
+            {price === totalPrice && ( // Если цена и totalPrice одинаковы, отображаем только одну
+              <Box sx={{ fontWeight: "medium", fontSize: 16, m: 1 }}>
+                {price} руб.
+              </Box>
+            )}
             <Box
               sx={{
                 fontWeight: 500,

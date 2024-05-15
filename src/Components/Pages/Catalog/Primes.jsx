@@ -21,6 +21,12 @@ const filterOptions = [
 
 export const PrimesPage = () => {
     const [products, setProducts] = useState();
+    useEffect(() => {
+      (async () => {
+        const response = await axios.get(`/products`);
+        setProducts(response.data.products);
+      })();
+    }, []);
     const { isDesktop } = useScreenWidth();
 
     const [searchTerm, setSearchTerm] = useState("");
@@ -34,17 +40,6 @@ export const PrimesPage = () => {
         );
       };
 
-    useEffect(() => {
-      (async () => {
-        const response = await fetch(`http://localhost:4444/products`, {
-          headers: {
-            "Content-Type": "application/json;charset=utf-8",
-          },
-        });
-        const result = await response.json();
-        setProducts(result);
-      })();
-    }, []);
 
     const filteredProducts = products
     ? products

@@ -181,32 +181,31 @@ export const AddProd = ({ closeModal, fetchAgain }) => {
             name="category"
             onChange={handleCategoryChange}
             value={formik.values.subcategory.category}
-            // error={!!formik.errors.subcategory.category}
           >
-            <MenuItem value={"Dry building mixtures"}>
+            <MenuItem value={"DrybuildingMixtures"}>
               Сухие строительные смеси
             </MenuItem>
             <MenuItem value={"Primers"}>Грунтовки</MenuItem>
-            <MenuItem value={"Ready-made building mixtures"}>
+            <MenuItem value={"ReadyMadeBuildingMixtures"}>
               Готовые строительные смеси
             </MenuItem>
-            <MenuItem value={"Drywall and components"}>
+            <MenuItem value={"DrywallAndComponents"}>
               Гипсокартон и комплектующие
             </MenuItem>
-            <MenuItem value={"Skirting boards"}>Плинтуса</MenuItem>
-            <MenuItem value={"Adhesives, sealants and silicones"}>
+            <MenuItem value={"SkirtingBoards"}>Плинтуса</MenuItem>
+            <MenuItem value={"AdhesivesSealantsSilicones"}>
               Клеи, герметики и силиконы
             </MenuItem>
-            <MenuItem value={"Scotch tape, film"}>Скотч, пленка</MenuItem>
+            <MenuItem value={"ScotchTapeFilm"}>Скотч, пленка</MenuItem>
             <MenuItem value={"Tools"}>Инструменты</MenuItem>
-            <MenuItem value={"Plywood, timber, fiberboard"}>
+            <MenuItem value={"PlywoodTimberFiberboard"}>
               Фанера, брус, двп
             </MenuItem>
-            <MenuItem value={"Decorative cornersmers"}>
+            <MenuItem value={"DecorativeCorners"}>
               Углы декоративные
             </MenuItem>
             <MenuItem value={"Thresholds"}>Пороги</MenuItem>
-            <MenuItem value={"Wallpaper, fiberglass"}>
+            <MenuItem value={"WallpaperFiberglass"}>
               Обои, стеклохолст
             </MenuItem>
             <MenuItem value={"Fasteners"}>Крепеж</MenuItem>
@@ -222,10 +221,8 @@ export const AddProd = ({ closeModal, fetchAgain }) => {
             name="subcategory"
             onChange={handleSubcategoryChange}
             value={formik.values.subcategory.name}
-
-            // error={!!formik.errors.subcategory.name}
           >
-            {formik.values.subcategory.category === "Dry building mixtures"
+            {formik.values.subcategory.category === "DrybuildingMixtures"
               ? [
                   <MenuItem key="Штукатурка" value="Штукатурка">
                     Штукатурка
@@ -265,7 +262,7 @@ export const AddProd = ({ closeModal, fetchAgain }) => {
                 ]
               : null}
             {formik.values.subcategory.category ===
-            "Ready-made building mixtures"
+            "ReadyMadeBuildingMixtures"
               ? [
                   <MenuItem key="Шпаклевка" value="Шпаклевка">
                     Шпаклевка
@@ -278,7 +275,7 @@ export const AddProd = ({ closeModal, fetchAgain }) => {
                   </MenuItem>,
                 ]
               : null}
-            {formik.values.subcategory.category === "Drywall and components"
+            {formik.values.subcategory.category === "DrywallAndComponents"
               ? [
                   <MenuItem key="ГКЛ" value="ГКЛ">
                     ГКЛ
@@ -297,7 +294,7 @@ export const AddProd = ({ closeModal, fetchAgain }) => {
                   </MenuItem>,
                 ]
               : null}
-            {formik.values.subcategory.category === "Skirting boards"
+            {formik.values.subcategory.category === "SkirtingBoards"
               ? [
                   <MenuItem key="Напольные" value="Напольные">
                     Напольные
@@ -308,7 +305,7 @@ export const AddProd = ({ closeModal, fetchAgain }) => {
                 ]
               : null}
             {formik.values.subcategory.category ===
-            "Adhesives, sealants and silicones"
+            "AdhesivesSealantsSilicones"
               ? [
                   <MenuItem key="Жидкие гвозди" value="Жидкие гвозди">
                     Жидкие гвозди
@@ -327,7 +324,7 @@ export const AddProd = ({ closeModal, fetchAgain }) => {
                   </MenuItem>,
                 ]
               : null}
-            {formik.values.subcategory.category === "Scotch tape, film"
+            {formik.values.subcategory.category === "ScotchTapeFilm"
               ? [
                   <MenuItem key="Скотч" value="Скотч">
                     Скотч
@@ -369,7 +366,7 @@ export const AddProd = ({ closeModal, fetchAgain }) => {
                 ]
               : null}
             {formik.values.subcategory.category ===
-            "Plywood, timber, fiberboard"
+            "PlywoodTimberFiberboard"
               ? [
                   <MenuItem key="Фанера" value="Фанера">
                     Фанера
@@ -382,7 +379,7 @@ export const AddProd = ({ closeModal, fetchAgain }) => {
                   </MenuItem>,
                 ]
               : null}
-            {formik.values.subcategory.category === "Decorative corners"
+            {formik.values.subcategory.category === "DecorativeCorners"
               ? [
                   <MenuItem key="Белые углы" value="Белые углы">
                     Белые углы
@@ -420,7 +417,7 @@ export const AddProd = ({ closeModal, fetchAgain }) => {
                   </MenuItem>,
                 ]
               : null}
-            {formik.values.subcategory.category === "Wallpaper, fiberglass"
+            {formik.values.subcategory.category === "WallpaperFiberglass"
               ? [
                   <MenuItem key="Обои" value="Обои">
                     Обои
