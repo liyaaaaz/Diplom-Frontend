@@ -3,16 +3,25 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Arrow from "./Arrow.jsx";
+import { useNavigate } from "react-router-dom";
 
 const CategoryBlock = () => {
   // Массив с категориями
+
+  const navigate = useNavigate();
+
+  const handleDrybuildingMixturesClick = () => {
+    navigate("DrybuildingMixtures");
+  };
 
   const categories = [
     {
       id: 1,
       title: "Сухие строительные смеси",
       image: "/src/Components/pictures/сух.jpg",
-      link: "https://skald-5.vercel.app/DrybuildingMixtures",
+      onClick: () => {
+        handleDrybuildingMixturesClick("https://skald-5.vercel.app/DrybuildingMixtures");
+    },
     },
     {
       id: 2,
@@ -108,20 +117,21 @@ const CategoryBlock = () => {
         <Slider {...settings}>
           {categories.map((category) => (
             <div key={category.id} className="px-1 mt-1">
-              <a href={category.link}>
-                <div className="bg-white rounded-sm shadow-lg overflow-hidden h-36 w-44 border-yellow-400 border-2">
-                  <img
-                    src={category.image}
-                    alt={category.title}
-                    className=" w-24 h-24 object-cover ml-5"
-                  />
-                  <div className="p-2">
-                    <h3 className=" text-xs font-semibold mb-2 text-black">
-                      {category.title}
-                    </h3>
-                  </div>
+              <div
+                className="bg-white rounded-sm shadow-lg overflow-hidden h-36 w-44 border-yellow-400 border-2"
+                onClick={category.onClick}
+              >
+                <img
+                  src={category.image}
+                  alt={category.title}
+                  className="w-24 h-24 object-cover ml-5"
+                />
+                <div className="p-2">
+                  <h3 className="text-xs font-semibold mb-2 text-black">
+                    {category.title}
+                  </h3>
                 </div>
-              </a>
+              </div>
             </div>
           ))}
         </Slider>
