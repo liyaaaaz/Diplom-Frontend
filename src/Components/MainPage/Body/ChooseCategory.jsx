@@ -54,13 +54,13 @@ const CategoryBlock = () => {
     {
       id: 1,
       title: "Сухие строительные смеси",
-      image: "/src/Components/pictures/сух.jpg",
+      src: "/pictures/сух.jpg",
       onClick: handleDrybuildingMixturesClick,
     },
     {
       id: 2,
       title: "Грунтовки",
-      image: "/src/Components/pictures/gips.jpg",
+      src: "/pictures/gips.jpg",
       onClick: handlePrimesClick,
     },
     {
